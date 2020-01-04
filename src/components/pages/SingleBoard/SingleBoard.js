@@ -1,4 +1,7 @@
 import React from 'react';
+// import PropTypes from 'prop-types';
+import MyNavbar from '../../shared/MyNavbar/MyNavbar';
+
 import './SingleBoard.scss';
 
 class SingleBoard extends React.Component {
