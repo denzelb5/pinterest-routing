@@ -15,6 +15,7 @@ import Auth from '../components/pages/Auth/Auth';
 import SingleBoard from '../components/pages/SingleBoard/SingleBoard';
 import NewBoard from '../components/pages/NewBoard/NewBoard';
 import firebaseConnection from '../helpers/data/connection';
+import MyNavbar from '../components/shared/MyNavbar/MyNavbar';
 
 
 const PublicRoute = ({ component: Component, authed, ...rest }) => {
@@ -53,6 +54,7 @@ class App extends React.Component {
     return (
       <div className="App">
      <Router>
+       <MyNavbar authed={authed} />
        <Switch>
          <PrivateRoute path="/" exact component={Home} authed={authed} />
          <PrivateRoute path="/board/new" exact component={NewBoard} authed={authed} />
