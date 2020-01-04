@@ -7,4 +7,5 @@ const firebaseApp = () => {
     firebase.initializeApp(apiKeys.firebaseKeys);
   }
 };
+
 export default firebaseApp;
