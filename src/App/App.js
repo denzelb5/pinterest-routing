@@ -38,11 +38,11 @@ class App extends React.Component {
      <Router>
        <Switch>
          <PrivateRoute path="/" exact component={Home} authed={authed} />
-         <PrivateRoute path="board/new" exact component={NewBoard} authed={authed} />
+         <PrivateRoute path="/board/new" exact component={NewBoard} authed={authed} />
          <PublicRoute path="/auth" exact component={Auth} authed={authed} />
          <PrivateRoute path="/board/:boardId" exact component={SingleBoard} authed={authed} />
          {/* :boardId is a variable being declared within the route */}
-         <PrivateRoute path="/board/:boardId/pin/:pinId" />
+         {/* <PrivateRoute path="/board/:boardId/pin/:pinId" /> */}
        </Switch>
      </Router>
      </div>
