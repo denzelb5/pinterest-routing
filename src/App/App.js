@@ -1,4 +1,6 @@
 import React from 'react';
+import firebase from 'firebase/app';
+import 'firebase/auth';
 import {
   BrowserRouter as Router,
   Route,
@@ -12,6 +14,7 @@ import Home from '../components/pages/Home/Home';
 import Auth from '../components/pages/Auth/Auth';
 import SingleBoard from '../components/pages/SingleBoard/SingleBoard';
 import NewBoard from '../components/pages/NewBoard/NewBoard';
+import firebaseConnection from '../helpers/data/connection';
 
 
 const PublicRoute = ({ component: Component, authed, ...rest }) => {
@@ -24,10 +27,24 @@ const PrivateRoute = ({ component: Component, authed, ...rest }) => {
   return <Route {...rest} render={(props) => routeChecker(props)} />;
 };
 
-
+firebaseConnection();
 class App extends React.Component {
   state = {
-    authed: true,
+    authed: false,
+  }
+
+  componentDidMount() {
+
+  }
+
+  componentWillUnmount() {
+    this.removeListener = firebase.auth().onAuthStateChanged((user) => {
+      if (user) {
+        this.setState({ authed: true });
+      } else {
+        this.setState({ authed: false });
+      }
+    });
   }
 
   render() {
