@@ -7,4 +7,4 @@ const pinShape = PropTypes.shape({
   uid: PropTypes.string.isRequired,
   boardId: PropTypes.string.isRequired,
 });
-export default pinShape;
+export default { pinShape };

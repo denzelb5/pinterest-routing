@@ -29,15 +29,22 @@ class SingleBoard extends React.Component {
       .catch((error) => console.error(error));
   }
 
+  deletePin = (pinId) => {
+    const { boardId } = this.props.match.params;
+    pinData.deletePin(pinId)
+      .then(() => this.getPinData(boardId))
+      .catch((error) => console.error(error));
+  }
+
   render() {
     const { boardId } = this.props.match.params;
     return (
-      <div className="Auth">
-        <h1>SingleBoard Page</h1>
-        <div className="pins d-flex flex-wrap">
-          { this.state.pins.map((pin) => <Pin key={pin.id} pin={pin} />) }
+        <div className="Auth">
+          <h1>SingleBoard Page</h1>
+          <div className="pins d-flex flex-wrap">
+            { this.state.pins.map((pin) => <Pin key={pin.id} pin={pin} deletePin={this.deletePin}/>) }
+          </div>
         </div>
-      </div>
     );
   }
 }
