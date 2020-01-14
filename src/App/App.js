@@ -16,6 +16,7 @@ import SingleBoard from '../components/pages/SingleBoard/SingleBoard';
 import BoardForm from '../components/pages/BoardForm/BoardForm';
 import firebaseConnection from '../helpers/data/connection';
 import MyNavbar from '../components/shared/MyNavbar/MyNavbar';
+import PinForm from '../components/pages/PinForm/PinForm';
 
 
 const PublicRoute = ({ component: Component, authed, ...rest }) => {
@@ -60,6 +61,7 @@ class App extends React.Component {
          <PrivateRoute path="/board/new" exact component={BoardForm} authed={authed} />
          <PublicRoute path="/auth" exact component={Auth} authed={authed} />
          <PrivateRoute path="/board/:boardId" exact component={SingleBoard} authed={authed} />
+         <PrivateRoute path="/board/:boardId/pin/new" exact component={PinForm} authed={authed} />
          {/* :boardId is a variable being declared within the route */}
          {/* <PrivateRoute path="/board/:boardId/pin/:pinId" /> */}
        </Switch>
