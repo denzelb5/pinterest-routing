@@ -23,6 +23,7 @@ class Board extends React.Component {
       <div className="Board">
         <div className="card">
         <button className="btn btn-danger" onClick={this.deleteBoardEvent}>X</button>
+        <Link className="btn btn-warning" to={`/board/${board.id}/edit`}>Edit</Link>
         <h3>{board.name}</h3>
         <div className="card-body">
         <p className="card-text">{board.description}</p>
